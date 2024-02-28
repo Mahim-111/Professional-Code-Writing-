@@ -11,15 +11,15 @@ public class StudentList {
 			System.out.println("Usage: (a | r | c | +word | ?word)");
 			return;
 		}
-		String fileContents = LoadData("Students.txt");
-		if (args[0].equals("a")) {
+		String fileContents = LoadData(Constants.StudentList);
+		if (args[0].equals(Constants.ShowAll)) {
 			System.out.println("Loading data ...");
 			String words[] = fileContents.split(",");
 			for (String word : words) {
 				System.out.println(word);
 			}
 			System.out.println("Data Loaded.");
-		} else if (args[0].equals("r")) {
+		} else if (args[0].equals(Constants.ShowRandom)) {
 			try {
 				System.out.println("Loading data ...");
 				System.out.println(fileContents);
@@ -30,12 +30,12 @@ public class StudentList {
 			} catch (Exception e) {
 			}
 			System.out.println("Data Loaded.");
-		} else if (args[0].contains("+")) {
+		} else if (args[0].contains(Constants.AddEntry)) {
 			System.out.println("Loading data ...");
 			String argValue = args[0].substring(1);
 			UpdateContent(argValue, "Students.txt");
 			System.out.println("Data Loaded.");
-		} else if (args[0].contains("?")) {
+		} else if (args[0].contains(Constants.FindEntry)) {
 			System.out.println("Loading data ...");
 			String words[] = fileContents.split(",");
 			boolean done = false;
@@ -47,7 +47,7 @@ public class StudentList {
 				}
 			}
 			System.out.println("Data Loaded.");
-		} else if (args[0].contains("c")) {
+		} else if (args[0].contains(Constants.ShowCount)) {
 			System.out.println("Loading data ...");
 			char characters[] = fileContents.toCharArray();
 			boolean in_word = false;
