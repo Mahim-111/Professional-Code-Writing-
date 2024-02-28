@@ -18,4 +18,20 @@ public class Constants {
     // Command line argument to add an entry to the list.
     public static final String AddEntry = "+";
 
+    public static final String Arguments = "Usage: (a | r | c | +word | ?word)";
+
+    public static final String Found = "We found it!";
+
+    public static final String WordFound = " word(s) found ";
+
+    public static final String UpdateContent = "\nList last updated on ";
+
+    public static final String StudentEntryDelimiter = ",";
+
+    public static final String DataLoad = "Data Loaded.";
+
+    public static final String Loading = "Loading data ...";
+
+    public static final String DateStyle = "dd/mm/yyyy-hh:mm:ss a";
+
 }
