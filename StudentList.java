@@ -36,17 +36,20 @@ public class StudentList {
 			UpdateContent(argValue, Constants.StudentList);
 			System.out.println(Constants.DataLoad);
 		} else if (args[0].contains(Constants.FindEntry)) {
-			System.out.println(Constants.Loading);
 			String words[] = fileContents.split(Constants.StudentEntryDelimiter);
-			boolean done = false;
+			int indexLocation = -1;
 			String argValue = args[0].substring(1);
-			for (int index = 0; index < words.length && !done; index++) {
-				if (words[index].equals(argValue)) {
-					System.out.println(Constants.Found);
-					done = true;
+			for (int index = 0; index < words.length; index++) {
+				if (words[index].trim().equals(argValue.trim())) {
+					indexLocation = index;
+					break;
 				}
 			}
-			System.out.println(Constants.DataLoad);
+			if (indexLocation >= 0) {
+				System.out.println(argValue + Constants.Found + indexLocation);
+			} else {
+				System.out.println(argValue + Constants.NotFound);
+			}
 		} else if (args[0].contains(Constants.ShowCount)) {
 			System.out.println(Constants.Loading);
 			char characters[] = fileContents.toCharArray();
